@@ -44,60 +44,74 @@ int main()
     printf("Pontos turisticos: ");
     scanf("%d", &pontos_turisticos2);
 
-    printf("\nDados da Carta 1:\n");
-    printf("Estado: %s\nCodigo: %s\nCidade: %s\nPopulacao: %lu\nArea: %.2f\nPIB: %.2f\nPontos turisticos: %d\n", estado1, codigo1, cidade1, populacao1, area1, pib1, pontos_turisticos1);
-
-    printf("\nDados da Carta 2:\n");
-    printf("Estado: %s\nCodigo: %s\nCidade: %s\nPopulacao: %lu\nArea: %.2f\nPIB: %.2f\nPontos turisticos: %d\n", estado2, codigo2, cidade2, populacao2, area2, pib2, pontos_turisticos2);
-
     float densidade_pop1 = (float)populacao1 / area1;
     float densidade_pop2 = (float)populacao2 / area2;
 
-    printf("\nComparacao:\n");
+    int escolha;
+    printf("\nEscolha o atributo para comparacao:\n");
+    printf("1. Populacao\n");
+    printf("2. Area\n");
+    printf("3. PIB\n");
+    printf("4. Pontos Turisticos\n");
+    printf("5. Densidade Populacional\n");
+    scanf("%d", &escolha);
 
-    if (populacao1 > populacao2)
-    {
-        printf("Carta 1 vence por populacao.\n");
-    }
-    else
-    {
-        printf("Carta 2 vence por populacao.\n");
-    }
+    printf("\nResultado da comparacao:\n");
 
-    if (area1 > area2)
+    switch (escolha)
     {
-        printf("Carta 1 vence por area.\n");
-    }
-    else
-    {
-        printf("Carta 2 vence por area.\n");
-    }
-
-    if (pib1 > pib2)
-    {
-        printf("Carta 1 vence por PIB.\n");
-    }
-    else
-    {
-        printf("Carta 2 vence por PIB.\n");
-    }
-
-    if (pontos_turisticos1 > pontos_turisticos2)
-    {
-        printf("Carta 1 vence por pontos turisticos.\n");
-    }
-    else
-    {
-        printf("Carta 2 vence por pontos turisticos.\n");
-    }
-
-    if (densidade_pop1 < densidade_pop2)
-    {
-        printf("Carta 1 vence por densidade populacional.\n");
-    }
-    else
-    {
-        printf("Carta 2 vence por densidade populacional.\n");
+    case 1:
+        if (populacao1 > populacao2)
+        {
+            printf("Carta 1 vence por populacao.\n");
+        }
+        else
+        {
+            printf("Carta 2 vence por populacao.\n");
+        }
+        break;
+    case 2:
+        if (area1 > area2)
+        {
+            printf("Carta 1 vence por area.\n");
+        }
+        else
+        {
+            printf("Carta 2 vence por area.\n");
+        }
+        break;
+    case 3:
+        if (pib1 > pib2)
+        {
+            printf("Carta 1 vence por PIB.\n");
+        }
+        else
+        {
+            printf("Carta 2 vence por PIB.\n");
+        }
+        break;
+    case 4:
+        if (pontos_turisticos1 > pontos_turisticos2)
+        {
+            printf("Carta 1 vence por pontos turisticos.\n");
+        }
+        else
+        {
+            printf("Carta 2 vence por pontos turisticos.\n");
+        }
+        break;
+    case 5:
+        if (densidade_pop1 < densidade_pop2)
+        {
+            printf("Carta 1 vence por densidade populacional.\n");
+        }
+        else
+        {
+            printf("Carta 2 vence por densidade populacional.\n");
+        }
+        break;
+    default:
+        printf("Escolha invalida.\n");
     }
 
     return 0;
