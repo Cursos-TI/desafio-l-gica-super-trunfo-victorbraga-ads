@@ -47,71 +47,87 @@ int main()
     float densidade_pop1 = (float)populacao1 / area1;
     float densidade_pop2 = (float)populacao2 / area2;
 
-    int escolha;
-    printf("\nEscolha o atributo para comparacao:\n");
+    int escolha1, escolha2;
+    printf("\nEscolha os atributos para comparacao:\n");
     printf("1. Populacao\n");
     printf("2. Area\n");
     printf("3. PIB\n");
     printf("4. Pontos Turisticos\n");
     printf("5. Densidade Populacional\n");
-    scanf("%d", &escolha);
+    printf("Escolha o primeiro atributo: ");
+    scanf("%d", &escolha1);
+    printf("Escolha o segundo atributo: ");
+    scanf("%d", &escolha2);
 
     printf("\nResultado da comparacao:\n");
 
-    switch (escolha)
+    int resultado1 = 0, resultado2 = 0;
+
+    switch (escolha1)
     {
     case 1:
-        if (populacao1 > populacao2)
-        {
-            printf("Carta 1 vence por populacao.\n");
-        }
-        else
-        {
-            printf("Carta 2 vence por populacao.\n");
-        }
+        resultado1 = (populacao1 > populacao2) ? 1 : (populacao1 < populacao2) ? -1
+                                                                               : 0;
         break;
     case 2:
-        if (area1 > area2)
-        {
-            printf("Carta 1 vence por area.\n");
-        }
-        else
-        {
-            printf("Carta 2 vence por area.\n");
-        }
+        resultado1 = (area1 > area2) ? 1 : (area1 < area2) ? -1
+                                                           : 0;
         break;
     case 3:
-        if (pib1 > pib2)
-        {
-            printf("Carta 1 vence por PIB.\n");
-        }
-        else
-        {
-            printf("Carta 2 vence por PIB.\n");
-        }
+        resultado1 = (pib1 > pib2) ? 1 : (pib1 < pib2) ? -1
+                                                       : 0;
         break;
     case 4:
-        if (pontos_turisticos1 > pontos_turisticos2)
-        {
-            printf("Carta 1 vence por pontos turisticos.\n");
-        }
-        else
-        {
-            printf("Carta 2 vence por pontos turisticos.\n");
-        }
+        resultado1 = (pontos_turisticos1 > pontos_turisticos2) ? 1 : (pontos_turisticos1 < pontos_turisticos2) ? -1
+                                                                                                               : 0;
         break;
     case 5:
-        if (densidade_pop1 < densidade_pop2)
-        {
-            printf("Carta 1 vence por densidade populacional.\n");
-        }
-        else
-        {
-            printf("Carta 2 vence por densidade populacional.\n");
-        }
+        resultado1 = (densidade_pop1 < densidade_pop2) ? 1 : (densidade_pop1 > densidade_pop2) ? -1
+                                                                                               : 0;
         break;
     default:
-        printf("Escolha invalida.\n");
+        printf("Primeira escolha invalida.\n");
+        return 1;
+    }
+
+    switch (escolha2)
+    {
+    case 1:
+        resultado2 = (populacao1 > populacao2) ? 1 : (populacao1 < populacao2) ? -1
+                                                                               : 0;
+        break;
+    case 2:
+        resultado2 = (area1 > area2) ? 1 : (area1 < area2) ? -1
+                                                           : 0;
+        break;
+    case 3:
+        resultado2 = (pib1 > pib2) ? 1 : (pib1 < pib2) ? -1
+                                                       : 0;
+        break;
+    case 4:
+        resultado2 = (pontos_turisticos1 > pontos_turisticos2) ? 1 : (pontos_turisticos1 < pontos_turisticos2) ? -1
+                                                                                                               : 0;
+        break;
+    case 5:
+        resultado2 = (densidade_pop1 < densidade_pop2) ? 1 : (densidade_pop1 > densidade_pop2) ? -1
+                                                                                               : 0;
+        break;
+    default:
+        printf("Segunda escolha invalida.\n");
+        return 1;
+    }
+
+    if (resultado1 > resultado2)
+    {
+        printf("Carta 1 vence com base nas escolhas.\n");
+    }
+    else if (resultado1 < resultado2)
+    {
+        printf("Carta 2 vence com base nas escolhas.\n");
+    }
+    else
+    {
+        printf("Empate com base nas escolhas.\n");
     }
 
     return 0;
